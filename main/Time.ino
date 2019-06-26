@@ -43,6 +43,19 @@ void timesetup() {
 void timeloop() {
   time_t now = time(nullptr);
   struct tm* p_tm = localtime(&now);
+  Serial.print(p_tm->tm_mday);
+  Serial.print("/");
+  Serial.print(p_tm->tm_mon + 1);
+  Serial.print("/");
+  Serial.print(p_tm->tm_year + 1900);
+  
+  Serial.print(" ");
+  
+  Serial.print(p_tm->tm_hour);
+  Serial.print(":");
+  Serial.print(p_tm->tm_min);
+  Serial.print(":");
+  Serial.println(p_tm->tm_sec);
 
   // Clear the buffer.
   display.clearDisplay();
